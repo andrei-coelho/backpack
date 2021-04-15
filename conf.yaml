@@ -1,0 +1,28 @@
+# %YAML 1.2
+---
+  
+name:            Backpack 
+description:     A package for developing back-end applications
+production_url:  http://localhost/backpack/
+development_url: http://localhost/backpack/
+
+production:      false # change that when you put your app into production
+
+# banco de dados
+database:
+
+  default:
+    driver:  mysql
+    host:    localhost
+    dbname:  dbname
+    user:    root
+    pass:
+    charset: utf8
+    port:
+
+# pacotes
+pack:
+  - back
+  - sqli
+
+---
