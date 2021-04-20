@@ -72,8 +72,16 @@ class Controller {
 
     }
 
+    private static function title($title){
+        self::$dataControllerInstances[count(self::$dataControllerInstances)-1]->setTitle($title);
+    }
+
     private static function mid($file){
         self::$dataControllerInstances[count(self::$dataControllerInstances)-1]->setMiddleware($file);
+    }
+
+    private static function meta($name, $content){
+        self::$dataControllerInstances[count(self::$dataControllerInstances)-1]->setMeta($name, $content);
     }
 
     private static function data($data){

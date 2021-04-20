@@ -47,6 +47,11 @@ class Config {
         return self::$instance->data['production'];
     }
 
+    public static function use_alternative(){
+
+        return self::$instance->data['alternative'];
+    }
+
     public static function is_pack($pack){
 
         return in_array($pack, self::$instance->data['pack']);

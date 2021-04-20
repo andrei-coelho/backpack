@@ -1,12 +1,14 @@
 # %YAML 1.2
 ---
   
-name:            Backpack 
-description:     A package for developing back-end applications
-production_url:  http://localhost/backpack/
-development_url: http://localhost/backpack/
+name:             Backpack 
+description:      A package for developing back-end applications
+production_url:   http://localhost/backpack/
+alternative_url:  http://localhost/backpack/
+development_url:  http://localhost/backpack/
 
-production:      false # change that when you put your app into production
+production:       false  # change that when you put your app into production
+alternative:      false # use url alternative in production
 
 # banco de dados
 database:

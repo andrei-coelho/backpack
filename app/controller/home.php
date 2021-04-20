@@ -4,12 +4,12 @@ use src\Config as Config;
 
 return function(){
 
-    # FUNÇÕES DE CONFIGURAÇÃO PARA RENDERIZAÇÃO
-
+    self::title(Config::get()['name']);
+    self::meta('author', 'Andrei Coelho');
+    self::meta('description', Config::get()['description']);
     self::data([
         "ola" => "mundo!"
     ]);
     self::page('home', []);
     
-
 };

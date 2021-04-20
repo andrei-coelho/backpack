@@ -5,4 +5,4 @@
 
 use back\Route as Route;
 
-Route::req('/teste\/{key}/', 'teste/teste');
+Route::req('/teste/', 'teste');

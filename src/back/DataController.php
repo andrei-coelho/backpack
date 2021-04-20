@@ -4,8 +4,10 @@ namespace Back;
 
 class DataController {
 
-    private $mid  = [], $data = [], $html;
+    private $mid  = [], $data = [], $html, $title;
     private $code = "HTTP/1.1 200 OK";
+
+    private $metas = [];
 
     public function setMiddleware($middleware){
         $this->mid[] = $middleware;
@@ -29,6 +31,22 @@ class DataController {
 
     public function getMiddleware(){
         return $this->mid;
+    }
+
+    public function setTitle($title){
+        $this->title = $title;
+    }
+
+    public function getTitle(){
+        return $this->title;
+    }
+
+    public function setMeta($name, $content){
+        $this->metas[$name] = $content;
+    }
+
+    public function getMetas(){
+        return $this->metas;
     }
 
     public function setCode($code){
