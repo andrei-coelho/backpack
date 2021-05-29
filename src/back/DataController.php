@@ -6,6 +6,8 @@ class DataController {
 
     private $mid  = [], $data = [], $html, $title;
     private $code = "HTTP/1.1 200 OK";
+    private $codeNumber = 200;
+    private $errorStatus = false;
 
     private $metas = [];
 
@@ -19,6 +21,14 @@ class DataController {
 
     public function setPage($htmlFile){
         $this->html = $htmlFile;
+    }
+
+    public function getError(){
+        return $this->errorStatus;
+    }
+
+    public function getCodeNumber(){
+        return $this->codeNumber;
     }
 
     public function getData(){
@@ -52,15 +62,32 @@ class DataController {
     public function setCode($code){
         switch ($code) {
             case 404:
+                $this->errorStatus = true;
+                $this->codeNumber = 404;
                 $this->code = 'HTTP/1.1 404 Not Found';
                 break;
             
             case 403:
+                $this->errorStatus = true;
+                $this->codeNumber = 403;
                 $this->code = 'HTTP/1.1 403 Forbidden';
                 break;
+
+            case 500:
+                $this->errorStatus = true;
+                $this->codeNumber = 500;
+                $this->code = 'HTTP/1.1 500 Internal Server Error';
+                break;
             
-            default:
+            case 200:
+                $this->errorStatus = false;
+                $this->codeNumber = 200;
                 $this->code = 'HTTP/1.1 200 OK';
+                break;
+
+            default:
+                $this->codeNumber = $code;
+                $this->errorStatus = true;
                 break;
         }
     }

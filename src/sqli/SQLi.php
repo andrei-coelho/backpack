@@ -102,6 +102,8 @@ class SQLi {
 			self::setBinds($st, $values);
 			
 		$res = new Result($st);
+		
+		if($res->hasError()) self::$lasterror = $res->getCode();
 		if($insert) return $res->hasError() ? false : $pdo->lastInsertId();
 		return $res->hasError() ? $res->getCode() : true;
 		

@@ -11,8 +11,8 @@ class Json extends Response implements ResponseInterface{
 
     public function send(){
         echo ObjJson::hot_json_encode([
-            "error" => false,
-            "code"  => 200,
+            "error" => $this->controller->getError(),
+            "code"  => $this->controller->getCodeNumber(),
             "data"  => $this->controller->getData()
         ], 
             JSON_PRETTY_PRINT | 
